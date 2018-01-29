@@ -1,3 +1,18 @@
-<p>
-  news-list works!
-</p>
+  <div class="ui medium rounded image">
+    <img [src]="singleNews.imageUrl">
+  </div>
+  <div class="content">
+    <div class="header">{{ singleNews.title }}</div>
+    <div class="meta">
+      <span>{{ singleNews.title }}</span>
+    </div>
+    <div class="description">
+      <p></p>
+    </div>
+    <div class="extra">
+      {{ singleNews.tags }}
+    </div>
+  </div>
+
+
+<!--<hr>-->
