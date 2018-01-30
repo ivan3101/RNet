@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { NewsComponent } from './news/news.component';
 import { NewsListComponent } from './news/news-list/news-list.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { NewsListComponent } from './news/news-list/news-list.component';
     AppComponent,
     HeaderComponent,
     NewsComponent,
-    NewsListComponent
+    NewsListComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule
