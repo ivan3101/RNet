@@ -1,4 +1,4 @@
-export class News {
+export class Article {
   constructor(
     public title: string,
     public story: string,

@@ -4,21 +4,37 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { NewsComponent } from './news/news.component';
-import { NewsListComponent } from './news/news-list/news-list.component';
 import { FooterComponent } from './footer/footer.component';
+import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ArticleListComponent } from './article-list/article-list.component';
+import { ArticleRowComponent } from './article-list/article-row/article-row.component';
+import { ArticleComponent } from './article-list/article-row/article/article.component';
+
+const appRoutes: Routes = [
+  { path: 'home', component: ArticleListComponent },
+  { path: 'article/:articleId', component: ArticleComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent }
+];
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    NewsComponent,
-    NewsListComponent,
-    FooterComponent
+    FooterComponent,
+    PageNotFoundComponent,
+    ArticleListComponent,
+    ArticleRowComponent,
+    ArticleComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
