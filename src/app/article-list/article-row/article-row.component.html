@@ -1,8 +1,8 @@
-<div class="ui medium rounded image">
+<a class="ui link medium rounded image" [routerLink]="'/article/' + article.id">
   <img [src]="article.imageUrl">
-</div>
+</a>
 <div class="content">
-  <div class="header">{{ article.title }}</div>
+  <a class="header" [routerLink]="'/article/' + article.id">{{ article.title }}</a>
   <div class="meta">
     <span>{{ article.story }}</span>
   </div>

@@ -14,6 +14,7 @@ import { ArticleComponent } from './article-list/article-row/article/article.com
 const appRoutes: Routes = [
   { path: 'home', component: ArticleListComponent },
   { path: 'article/:articleId', component: ArticleComponent },
+  // { path: 'article/category/:categoryId', component: }
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
