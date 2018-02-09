@@ -4,6 +4,6 @@ export class Article {
     public title: string,
     public story: string,
     public imageUrl: string,
-    public tags: Array<string>
+    public categories: Array<string>
   ) { }
 }

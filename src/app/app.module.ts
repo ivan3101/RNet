@@ -3,22 +3,19 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { RouterModule, Routes } from '@angular/router';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ArticleListComponent } from './article-list/article-list.component';
-import { ArticleRowComponent } from './article-list/article-row/article-row.component';
-import { ArticleComponent } from './article-list/article-row/article/article.component';
-
-const appRoutes: Routes = [
-  { path: 'home', component: ArticleListComponent },
-  { path: 'article/:articleId', component: ArticleComponent },
-  // { path: 'article/category/:categoryId', component: }
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent }
-];
-
+import { HeaderComponent } from './Components/header/header.component';
+import { FooterComponent } from './Components/footer/footer.component';
+import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
+import { ArticleListComponent } from './Components/article-list/article-list.component';
+import { ArticleRowComponent } from './Components/article-row/article-row.component';
+import { ArticleComponent } from './Components/article/article.component';
+import {HttpClientModule} from '@angular/common/http';
+import {ArticleService} from './Services/article.service';
+import { CategoryComponent } from './Components/category/category.component';
+import {AppRoutingModule} from './app-routing.module';
+import { HomeComponent } from './Components/home/home.component';
+import { FeaturedComponent } from './Components/featured/featured.component';
+import { SubstrPipe } from './pipes/substr.pipe';
 
 @NgModule({
   declarations: [
@@ -28,16 +25,20 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     ArticleListComponent,
     ArticleRowComponent,
-    ArticleComponent
+    ArticleComponent,
+    CategoryComponent,
+    HomeComponent,
+    FeaturedComponent,
+    SubstrPipe
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true }
-    )
+    HttpClientModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [
+      ArticleService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

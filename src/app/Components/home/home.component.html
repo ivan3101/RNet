@@ -1,0 +1,23 @@
+<app-featured></app-featured>
+<div class="ui segment container"  style="margin-bottom: 20px;">
+  <h1>Lo ultimo</h1>
+  <div class="ui four column doubling stackable grid container">
+    <div class="column" *ngFor="let article of articles">
+      <a class="ui card" [routerLink]="['/articles', article.id]">
+        <div class="image">
+          <img [src]="article.imageUrl">
+        </div>
+        <div class="content">
+          <div class="header">{{ article.title | titlecase | substr:40 }}</div>
+          <div class="meta">
+            <span>2 days ago</span>
+            <a [routerLink]="['/category', article.categories]">{{ article.categories }}</a>
+          </div>
+          <div class="description">
+            {{ article.story | substr:75 }}
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

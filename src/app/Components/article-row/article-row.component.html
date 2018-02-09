@@ -1,0 +1,17 @@
+<a class="ui link medium rounded image" [routerLink]="['/articles', article.id]">
+  <img [src]="article.imageUrl">
+</a>
+<div class="content">
+  <a class="header" [routerLink]="['/articles', article.id]">{{ article.title }}</a>
+  <div class="meta">
+    <span>{{ article.story }}</span>
+  </div>
+  <div class="description">
+    <p></p>
+  </div>
+  <div class="extra">
+    <a
+      *ngFor="let category of article.categories"
+      [routerLink]="['/category', category ]">{{ category }}</a>
+  </div>
+</div>

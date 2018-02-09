@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Article} from './article/article.model';
+import {Article} from '../../Models/article.model';
 
 @Component({
   selector: 'app-article-row',

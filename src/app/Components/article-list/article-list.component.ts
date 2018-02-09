@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Article} from './article-row/article/article.model';
+import {Article} from '../../Models/article.model';
+import {ArticleService} from '../../Services/article.service';
 
 @Component({
   selector: 'app-article-list',
@@ -7,7 +8,8 @@ import {Article} from './article-row/article/article.model';
   styleUrls: ['./article-list.component.css']
 })
 export class ArticleListComponent implements OnInit {
-  articles: Article[] = [
+  articles: Article[] =
+    [
     new Article(
       1,
       'Rafa es marico',
@@ -30,9 +32,16 @@ export class ArticleListComponent implements OnInit {
       ['Rafa', 'marico', 'marico el que lo lea :v']
     )
   ];
-  constructor() { }
+  constructor(private articleService: ArticleService) { }
 
   ngOnInit() {
+    // this.articleService.getArticles()
+    //   .subscribe(
+    //     (response: Response) => {
+    //       console.log(response);
+    //     }
+    //   );
   }
+
 
 }
