@@ -1,0 +1,44 @@
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 2fr 4fr 2fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    'gl gc gr'
+    'gl2 gc gr2'
+;
+  /*grid-column-gap: 5px;*/
+}
+
+.gl {
+  grid-area: gl;
+}
+
+.gc {
+  grid-area: gc;
+}
+
+.gr {
+  grid-area: gr;
+}
+
+.gl2 {
+  grid-area: gl2;
+}
+
+.gr2 {
+  grid-area: gr2;
+}
+
+.image-with-text {
+  position: relative;
+}
+
+.image-content {
+  position: absolute; /* Position the background text */
+  bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1; /* Grey text */
+  width: 100%; /* Full width */
+  padding: 10px; /* Some padding */
+  font-size: 1.3em;
+}
