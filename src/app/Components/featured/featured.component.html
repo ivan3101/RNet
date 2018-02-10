@@ -1,34 +1,9 @@
 <div class="basic segment">
   <div class="gallery-grid">
-    <div class="image-with-text gl">
-      <img src="https://i.blogs.es/a44984/apertura/1920_733.jpg" alt="" class="ui bordered fluid image">
-      <div class="image-content">
-        <p>Elon musk es marico</p>
-      </div>
-    </div>
-    <div class="image-with-text gc">
-      <img src="https://i.blogs.es/e5c5bb/iphone/500_333.jpg" alt="" class="ui bordered fluid image">
-      <div class="image-content">
-        <p>Elon musk es marico</p>
-      </div>
-    </div>
-    <div class="image-with-text gr">
-      <img src="https://i.blogs.es/d3def6/vlcchromecast/500_333.jpg" alt="" class="ui bordered fluid image">
-      <div class="image-content">
-        <p>Elon musk es marico</p>
-      </div>
-    </div>
-    <div class="image-with-text gl2">
-      <img src="https://i.blogs.es/6eb429/new-horitzons/500_333.jpg" alt="" class="ui bordered fluid image">
-      <div class="image-content">
-        <p>Elon musk es marico</p>
-      </div>
-    </div>
-    <div class="image-with-text gr2">
-      <img src="https://i.blogs.es/d2631e/sad-elon/1366_2000.jpg" alt="" class="ui bordered fluid image">
-      <div class="image-content">
-        <p>Alguien ha suplantado a Elon Musk para que la gente le regale ethereums, ya ha engañado a 45 personas</p>
-      </div>
-    </div>
+    <app-featured-element
+    *ngFor="let articleFeatured of featuredArticles; let i=index"
+    [articleFeatured]="articleFeatured"
+    [class]="classGrid[i]"
+    ></app-featured-element>
   </div>
 </div>

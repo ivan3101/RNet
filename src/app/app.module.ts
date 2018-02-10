@@ -16,6 +16,7 @@ import {AppRoutingModule} from './app-routing.module';
 import { HomeComponent } from './Components/home/home.component';
 import { FeaturedComponent } from './Components/featured/featured.component';
 import { SubstrPipe } from './pipes/substr.pipe';
+import { FeaturedElementComponent } from './Components/featured-element/featured-element.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SubstrPipe } from './pipes/substr.pipe';
     CategoryComponent,
     HomeComponent,
     FeaturedComponent,
-    SubstrPipe
+    SubstrPipe,
+    FeaturedElementComponent
   ],
   imports: [
     BrowserModule,
