@@ -15,7 +15,7 @@ import { CategoryComponent } from './Components/category/category.component';
 import {AppRoutingModule} from './app-routing.module';
 import { HomeComponent } from './Components/home/home.component';
 import { FeaturedComponent } from './Components/featured/featured.component';
-import { SubstrPipe } from './pipes/substr.pipe';
+import { SubstrPipe } from './Pipes/substr.pipe';
 import { FeaturedElementComponent } from './Components/featured-element/featured-element.component';
 
 @NgModule({
@@ -31,7 +31,7 @@ import { FeaturedElementComponent } from './Components/featured-element/featured
     HomeComponent,
     FeaturedComponent,
     SubstrPipe,
-    FeaturedElementComponent
+    FeaturedElementComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +40,7 @@ import { FeaturedElementComponent } from './Components/featured-element/featured
     SuiModule
   ],
   providers: [
-      ArticleService
+      ArticleService,
   ],
   bootstrap: [AppComponent]
 })

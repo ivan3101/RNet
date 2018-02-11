@@ -4,6 +4,9 @@
     *ngFor="let articleFeatured of featuredArticles; let i=index"
     [articleFeatured]="articleFeatured"
     [class]="classGrid[i]"
+    [ngClass]="{'active': i===imgActive}"
+    (swipeleft)="plusSlides(1)"
+    (swiperight)="plusSlides(-1)"
     ></app-featured-element>
   </div>
 </div>

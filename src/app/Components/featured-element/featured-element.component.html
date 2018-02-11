@@ -1,9 +1,13 @@
 <div class="image-with-text" (mouseenter)="isDimmed = !isDimmed" (mouseleave)="isDimmed = !isDimmed">
-  <img [src]="articleFeatured.imageUrl" [alt]="articleFeatured.title" class="ui fluid image">
+  <a [routerLink]="['/articles', articleFeatured.id]">
+    <img [src]="articleFeatured.imageUrl" [alt]="articleFeatured.title" class="ui fluid image">
+  </a>
   <sui-dimmer [isClickable]="false" [isDimmed]="isDimmed">
     <a [routerLink]="['/articles', articleFeatured.id]" class="dimmer-text">Leer mas</a>
   </sui-dimmer>
-  <div class="image-content">
-    <p>{{ articleFeatured.title }}</p>
-  </div>
+  <a [routerLink]="['/articles', articleFeatured.id]">
+    <div class="image-content">
+      <p>{{ articleFeatured.title }}</p>
+    </div>
+  </a>
 </div>

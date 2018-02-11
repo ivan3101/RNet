@@ -1,0 +1,5 @@
+@media screen and (max-width: 760px) {
+  header div a.item, header div div.menu2{
+    display: none;
+  }
+}

@@ -66,8 +66,7 @@ export class HomeComponent implements OnInit {
         ['marico el que lo lea :v']
       )
     ];
-  constructor() { }
-
+  constructor() {  }
   ngOnInit() {
   }
 

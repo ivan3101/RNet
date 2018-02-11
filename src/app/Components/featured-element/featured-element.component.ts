@@ -1,4 +1,4 @@
-import {Component, HostBinding, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-featured-element',
@@ -10,5 +10,4 @@ export class FeaturedElementComponent implements OnInit {
   @Input() articleFeatured;
   constructor() { }
   ngOnInit() { }
-
 }

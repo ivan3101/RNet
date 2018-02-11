@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges, OnDestroy, OnInit} from '@angular/core';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-featured',
   templateUrl: './featured.component.html',
   styleUrls: ['./featured.component.css']
 })
-export class FeaturedComponent implements OnInit {
+export class FeaturedComponent implements OnInit{
   featuredArticles = [
     {
       id: 0,
@@ -34,9 +35,33 @@ export class FeaturedComponent implements OnInit {
     },
   ];
   classGrid = ['gl', 'gc', 'gr', 'gl2', 'gr2'];
-  constructor() { }
-
+  imgActive: number;
+  constructor() {
+    this.imgActive = 0;
+  }
   ngOnInit() {
+    this.timeoutImg();
+  }
+  plusSlides(index: number) {
+    if ((this.imgActive + index) > 4) {
+      this.imgActive = 0;
+    } else if ((this.imgActive + index) < 0) {
+      this.imgActive = 4;
+    } else {
+      this.imgActive = this.imgActive + index;
+    }
+  }
+  timeoutImg() {
+    setTimeout(
+      () => {
+        if ((this.imgActive + 1) > 4) {
+          this.imgActive = 0;
+        } else {
+          this.imgActive = this.imgActive + 1;
+        }
+        this.timeoutImg();
+      }, 6000
+    );
   }
 
 }
