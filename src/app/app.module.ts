@@ -18,6 +18,7 @@ import { FeaturedComponent } from './Components/featured/featured.component';
 import { SubstrPipe } from './Pipes/substr.pipe';
 import { FeaturedElementComponent } from './Components/featured-element/featured-element.component';
 import {SidebarService} from './Services/sidebar.service';
+import { MobileNavbarComponent } from './Components/mobile-navbar/mobile-navbar.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {SidebarService} from './Services/sidebar.service';
     FeaturedComponent,
     SubstrPipe,
     FeaturedElementComponent,
+    MobileNavbarComponent,
   ],
   imports: [
     BrowserModule,
