@@ -19,6 +19,7 @@ import { SubstrPipe } from './Pipes/substr.pipe';
 import { FeaturedElementComponent } from './Components/featured-element/featured-element.component';
 import {SidebarService} from './Services/sidebar.service';
 import { MobileNavbarComponent } from './Components/mobile-navbar/mobile-navbar.component';
+import { IdentificationComponent } from './Components/identification/identification.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MobileNavbarComponent } from './Components/mobile-navbar/mobile-navbar.
     SubstrPipe,
     FeaturedElementComponent,
     MobileNavbarComponent,
+    IdentificationComponent,
   ],
   imports: [
     BrowserModule,
