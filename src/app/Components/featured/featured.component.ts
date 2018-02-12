@@ -1,45 +1,20 @@
-import {Component, OnChanges, OnDestroy, OnInit} from '@angular/core';
-import {Subscription} from 'rxjs/Subscription';
+import {AfterContentInit, AfterViewChecked, Component, ElementRef, OnChanges, OnInit, ViewChild} from '@angular/core';
+import {ArticleService} from '../../Services/article.service';
 
 @Component({
   selector: 'app-featured',
   templateUrl: './featured.component.html',
   styleUrls: ['./featured.component.css']
 })
-export class FeaturedComponent implements OnInit{
-  featuredArticles = [
-    {
-      id: 0,
-      title: 'El \'disc rot\', la inevitable amenaza para los coleccionistas de discos compactos',
-      imageUrl: 'https://i.blogs.es/e19f6e/disc-rot-02/500_333.jpg'
-    },
-    {
-      id: 1,
-      title: 'El misterio de las esquinas de colores en los juegos de algunas consolas Nintendo: utilidad, variantes y excepciones',
-      imageUrl: 'https://i.blogs.es/989cf3/esquinas-switch-02/500_333.jpg'
-    },
-    {
-      id: 2,
-      title: 'Uber acuerda pagar a Waymo (Google) 245 millones de dólares para cerrar su batalla legal ',
-      imageUrl: 'https://i.blogs.es/e62a2b/uber-waymo/500_333.png'
-    },
-    {
-      id: 3,
-      title: 'New Horizons le ha arrebatado el récord de la foto tomada desde el lugar más alejado de la Tierra a Voyager 1 ',
-      imageUrl: 'https://i.blogs.es/6eb429/new-horitzons/500_333.jpg'
-    },
-    {
-      id: 4,
-      title: 'Mi Box TV, análisis: la mejor calidad-precio si quieres ver contenido 4K en tu televisor',
-      imageUrl: 'https://i.blogs.es/b96927/mi-box-tv/1024_682.jpg'
-    },
-  ];
+export class FeaturedComponent implements OnInit {
+  articles;
   classGrid = ['gl', 'gc', 'gr', 'gl2', 'gr2'];
   imgActive: number;
-  constructor() {
+  constructor(private articleService: ArticleService) {
     this.imgActive = 0;
   }
   ngOnInit() {
+    this.articles = this.articleService.getFeaturedArticles();
     this.timeoutImg();
   }
   plusSlides(index: number) {
@@ -60,8 +35,10 @@ export class FeaturedComponent implements OnInit{
           this.imgActive = this.imgActive + 1;
         }
         this.timeoutImg();
-      }, 6000
+      }, 8000
     );
   }
-
+  onDotClicked(index: number) {
+    this.imgActive = index;
+  }
 }

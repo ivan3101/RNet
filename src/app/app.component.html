@@ -1,15 +1,4 @@
-<sui-sidebar-container class="ui bottom attached secondary segment">
-  <sui-sidebar class="inverted red labeled icon menu vertical">
-      <a href="#" class="item"><i class="id card icon"></i>Identificarse</a>
-      <a routerLink="/category/computadoras" routerLinkActive="active" class="item"><i class="desktop icon"></i>Computadoras</a>
-      <a routerLink="/category/smartphones" routerLinkActive="active" class="item"><i class="mobile icon"></i>Smartphones</a>
-      <a routerLink="/category/apps" routerLinkActive="active" class="item"><i class="fab fa-app-store fa-2x"></i><br>Apps</a>
-      <a routerLink="/category/tutoriales" routerLinkActive="active" class="item"><i class="book icon"></i>Tutoriales</a>
-  </sui-sidebar>
-  <sui-sidebar-sibling [isDimmedWhenVisible]="true">
-    <app-header></app-header>
-    <router-outlet></router-outlet>
-    <app-footer></app-footer>
-  </sui-sidebar-sibling>
-</sui-sidebar-container>
+<app-header></app-header>
+<router-outlet></router-outlet>
 
+<app-footer></app-footer>

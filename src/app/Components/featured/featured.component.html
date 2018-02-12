@@ -1,12 +1,19 @@
 <div class="basic segment">
   <div class="gallery-grid">
     <app-featured-element
-    *ngFor="let articleFeatured of featuredArticles; let i=index"
+    *ngFor="let articleFeatured of (articles | async); let i=index"
     [articleFeatured]="articleFeatured"
     [class]="classGrid[i]"
     [ngClass]="{'active': i===imgActive}"
     (swipeleft)="plusSlides(1)"
     (swiperight)="plusSlides(-1)"
     ></app-featured-element>
+    <div class="centered dots">
+      <span class="dot" [ngClass]="{'active': imgActive === 0}" (click)="onDotClicked(0)"></span>
+      <span class="dot" [ngClass]="{'active': imgActive === 1}" (click)="onDotClicked(1)"></span>
+      <span class="dot" [ngClass]="{'active': imgActive === 2}" (click)="onDotClicked(2)"></span>
+      <span class="dot" [ngClass]="{'active': imgActive === 3}" (click)="onDotClicked(3)"></span>
+      <span class="dot" [ngClass]="{'active': imgActive === 4}" (click)="onDotClicked(4)"></span>
+    </div>
   </div>
 </div>

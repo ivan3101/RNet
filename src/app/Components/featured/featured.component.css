@@ -1,4 +1,7 @@
 @media screen and (min-width: 769px) {
+  div.gallery-grid div.centered {
+    display: none;
+  }
   .gallery-grid {
     display: grid;
     grid-template-columns: 2fr 4fr 2fr;
@@ -39,5 +42,24 @@
   }
   .gallery-grid {
     position: relative;
+  }
+
+  div.dots {
+    text-align: center;
+    margin-top: 14px
+  }
+
+  .dot {
+    cursor:pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  .dot.active, .dot:hover {
+    background-color: #717171;
   }
 }

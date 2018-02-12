@@ -17,6 +17,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { FeaturedComponent } from './Components/featured/featured.component';
 import { SubstrPipe } from './Pipes/substr.pipe';
 import { FeaturedElementComponent } from './Components/featured-element/featured-element.component';
+import {SidebarService} from './Services/sidebar.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FeaturedElementComponent } from './Components/featured-element/featured
     SuiModule
   ],
   providers: [
-      ArticleService,
+    ArticleService,
+    SidebarService
   ],
   bootstrap: [AppComponent]
 })
