@@ -21,8 +21,7 @@ import { MobileNavbarComponent } from './Components/mobile-navbar/mobile-navbar.
 import { IdentificationComponent } from './Components/identification/identification.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { LoginComponent } from './Components/login/login.component';
-import {IdentificationService} from './Services/identification.service';
-import {SuiModal} from 'ng2-semantic-ui/dist';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -49,12 +48,12 @@ import {SuiModal} from 'ng2-semantic-ui/dist';
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     SuiModule
   ],
   providers: [
     ArticleService,
-    IdentificationService
   ],
   bootstrap: [AppComponent]
 })

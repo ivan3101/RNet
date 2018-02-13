@@ -1,17 +1,22 @@
 <div class="ui top attached tabular menu">
-  <div class="ui two column doubling stackable grid container">
+  <div class="ui two column grid container">
     <div class="column">
-      <a class="active item">
+      <a class="item"
+         [ngClass]="{'active': activeTab === 'login'}"
+         (click)="onSelectLogin()">
         Iniciar Sesión
       </a>
     </div>
     <div class="column">
-      <a class="item">
+      <a class="item"
+         [ngClass]="{'active': activeTab === 'register'}"
+         (click)="onSelectRegister()">
         Registrarse
       </a>
     </div>
   </div>
 </div>
 <div class="ui bottom attached segment">
-  <app-login></app-login>
+  <app-login *ngIf="activeTab === 'login'"></app-login>
+  <app-register *ngIf="activeTab === 'register'"></app-register>
 </div>

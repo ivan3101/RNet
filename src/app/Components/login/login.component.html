@@ -1,0 +1,30 @@
+<form class="ui large equal width form" [formGroup]="loginForm" [ngClass]="{
+'error': !loginForm.valid && loginForm.touched,
+'success': session
+}">
+  <div class="ui success message">
+    <div class="header">Exito!</div>
+    <p>La sesión ha sido iniciada correctamente</p>
+  </div>
+  <div class="field required" [ngClass]="{'error': !loginForm.get('username').valid && loginForm.get('username').touched}">
+    <div class="ui error message" *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">
+      <div class="header">Campo requerido</div>
+      <p>Debe ingresar un nombre de usuario</p>
+    </div>
+    <label for="username">Nombre de Usuario:</label>
+    <input type="text"
+           id="username"
+           formControlName="username">
+  </div>
+  <div class="field required" [ngClass]="{'error': !loginForm.get('password').valid && loginForm.get('password').touched}">
+    <div class="ui error message" *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">
+      <div class="header">Campo requerido</div>
+      <p>Debe ingresar una contraseña</p>
+    </div>
+    <label for="password">Contraseña:</label>
+    <input type="password"
+           id="password"
+           formControlName="password">
+  </div>
+  <button class="ui submit button" type="submit" [disabled]="!loginForm.valid" (click)="onSubmit()">Iniciar Sesión</button>
+</form>

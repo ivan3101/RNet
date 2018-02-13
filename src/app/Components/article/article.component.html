@@ -24,13 +24,16 @@
         </div>
       </div>
     </div>
-    <form class="ui reply form">
+    <form class="ui reply form" [formGroup]="commentsForm">
       <div class="field">
-        <textarea #comment></textarea>
+        <label for="comment">Escriba su comentario:</label>
+        <textarea formControlName="comment" id="comment"></textarea>
       </div>
-      <div class="ui blue labeled submit icon button" (click)="onAddComment(comment)">
+      <button type="submit" class="ui blue labeled submit icon button"
+           (click)="onAddComment()"
+           [disabled]="!commentsForm.valid">
         <i class="icon edit"></i> Publicar comentario
-      </div>
+      </button>
     </form>
   </div>
 </div>
