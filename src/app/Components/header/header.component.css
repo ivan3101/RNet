@@ -2,4 +2,10 @@
   header div a.item, header div div.menu2{
     display: none;
   }
+  app-identification {
+    cursor: pointer;
+  }
+  app-identification:hover {
+    /*background-color:;*/
+  }
 }

@@ -1,6 +1,5 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {ModalTemplate, SuiModalService, TemplateModalConfig} from 'ng2-semantic-ui';
-import {IContext} from '../../Interfaces/icontext.interface';
+import {Component, OnInit} from '@angular/core';
+import {SuiModal} from 'ng2-semantic-ui';
 
 @Component({
   selector: 'app-identification',
@@ -8,21 +7,6 @@ import {IContext} from '../../Interfaces/icontext.interface';
   styleUrls: ['./identification.component.css']
 })
 export class IdentificationComponent implements OnInit {
-  @ViewChild('modalTemplate') public modalTemplate: ModalTemplate<IContext, string, string>;
-  constructor(public modalService: SuiModalService) { }
-
-  ngOnInit() {
-  }
-  public open(dynamicContent: string = 'Example') {
-    const config = new TemplateModalConfig<IContext, string, string>(this.modalTemplate);
-
-    config.closeResult = 'closed!';
-    config.context = { data: dynamicContent };
-
-    this.modalService
-      .open(config)
-      .onApprove(result => { /* approve callback */ })
-      .onDeny(result => { /* deny callback */});
-  }
-
+  constructor(public modal: SuiModal<void, void>) {  }
+  ngOnInit() { }
 }

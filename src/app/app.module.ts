@@ -17,9 +17,12 @@ import { HomeComponent } from './Components/home/home.component';
 import { FeaturedComponent } from './Components/featured/featured.component';
 import { SubstrPipe } from './Pipes/substr.pipe';
 import { FeaturedElementComponent } from './Components/featured-element/featured-element.component';
-import {SidebarService} from './Services/sidebar.service';
 import { MobileNavbarComponent } from './Components/mobile-navbar/mobile-navbar.component';
 import { IdentificationComponent } from './Components/identification/identification.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { LoginComponent } from './Components/login/login.component';
+import {IdentificationService} from './Services/identification.service';
+import {SuiModal} from 'ng2-semantic-ui/dist';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,11 @@ import { IdentificationComponent } from './Components/identification/identificat
     FeaturedElementComponent,
     MobileNavbarComponent,
     IdentificationComponent,
+    RegisterComponent,
+    LoginComponent,
+  ],
+  entryComponents: [
+    IdentificationComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +54,7 @@ import { IdentificationComponent } from './Components/identification/identificat
   ],
   providers: [
     ArticleService,
-    SidebarService
+    IdentificationService
   ],
   bootstrap: [AppComponent]
 })

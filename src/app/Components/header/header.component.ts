@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {CustomModal} from '../identification/CustomModal';
+import {ModalSize, SuiModalService} from 'ng2-semantic-ui';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +8,10 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  constructor() {  }
+  constructor(private modalService: SuiModalService) { }
   ngOnInit() {  }
+  onOpenModal() {
+    this.modalService
+      .open(new CustomModal(ModalSize.Tiny));
+  }
 }

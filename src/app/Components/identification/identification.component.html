@@ -1,11 +1,17 @@
-<a class="item" (click)="open()"><i class="id card icon"></i>Identificarse</a>
-<ng-template let-context let-modal="modal" #modalTemplate>
-  <div class="header">Example</div>
-  <div class="content">
-    <p>{{ context.data }}</p>
+<div class="ui top attached tabular menu">
+  <div class="ui two column doubling stackable grid container">
+    <div class="column">
+      <a class="active item">
+        Iniciar Sesión
+      </a>
+    </div>
+    <div class="column">
+      <a class="item">
+        Registrarse
+      </a>
+    </div>
   </div>
-  <div class="actions">
-    <button class="ui red button" (click)="modal.deny('denied')">Cancel</button>
-    <button class="ui green button" (click)="modal.approve('approved')" autofocus>OK</button>
-  </div>
-</ng-template>
+</div>
+<div class="ui bottom attached segment">
+  <app-login></app-login>
+</div>
