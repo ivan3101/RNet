@@ -20,15 +20,17 @@ export class ArticleComponent implements OnInit {
     this.commentsForm = new FormGroup({
       'comment': new FormControl(null, [Validators.required])
     });
-    this.route.paramMap.subscribe((params: Params) => this.articleId = params.get('articleId'));
-    this.articleService.getArticleById(+this.articleId).subscribe(article => this.article = article[0]);
+    this.route.paramMap.subscribe((params: Params) => {
+      this.articleId = params.get('articleId');
+      this.articleService.getArticleById(+this.articleId).subscribe(article => this.article = article[0]);
+    });
   }
   onAddComment() {
     this.article.comments.push(new Comment(
-      'Ivan',
+      'Rafael',
       this.commentsForm.value.comment,
       new Date(),
-      ''
+      'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png'
     ));
     this.commentsForm.reset();
   }

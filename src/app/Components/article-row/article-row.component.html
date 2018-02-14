@@ -4,14 +4,12 @@
 <div class="content">
   <a class="header" [routerLink]="['/articles', article.id]">{{ article.title }}</a>
   <div class="meta">
-    <span>{{ article.story }}</span>
+    <span [innerHTML]="article.story | substr:300"></span>
   </div>
   <div class="description">
     <p></p>
   </div>
   <div class="extra">
-    <a
-      *ngFor="let category of article.categories"
-      [routerLink]="['/category', category ]">{{ category }}</a>
+    <a [routerLink]="['/category', article.category ]">{{ article.category | titlecase }}</a>
   </div>
 </div>

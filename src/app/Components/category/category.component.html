@@ -1,1 +1,10 @@
-<h1 class="ui header">{{ category }}</h1>
+<div class="ui container segment">
+  <h1 class="header">{{ category | titlecase}}</h1>
+  <div class='ui divided items'>
+    <app-article-row
+      *ngFor='let article of articles | async'
+      [article]='article'
+      class='item'>
+    </app-article-row>
+  </div>
+</div>

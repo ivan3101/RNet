@@ -1,5 +1,5 @@
 <div class="image-with-text" (mouseenter)="isDimmed = !isDimmed" (mouseleave)="isDimmed = !isDimmed">
-  <a [routerLink]="['/articles', articleFeatured.id]">
+  <a [routerLink]="['/articles', articleFeatured.id]" class="article-img">
     <img [src]="articleFeatured.imageUrl" [alt]="articleFeatured.title" class="ui fluid image">
   </a>
   <sui-dimmer [isClickable]="false" [isDimmed]="isDimmed">

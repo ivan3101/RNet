@@ -1,7 +1,7 @@
 <div class="basic segment">
   <div class="gallery-grid">
     <app-featured-element
-    *ngFor="let articleFeatured of (articles | async); let i=index"
+    *ngFor="let articleFeatured of articles | async; let i=index"
     [articleFeatured]="articleFeatured"
     [class]="classGrid[i]"
     [ngClass]="{'active': i===imgActive}"

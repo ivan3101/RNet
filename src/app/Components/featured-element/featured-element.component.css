@@ -1,18 +1,29 @@
+.image-with-text {
+  position: relative;
+  height: 100%;
+}
 
-  .image-with-text {
-    position: relative;
-  }
+.image-with-text a.article-img, .image-with-text a.article-img img {
+  height: 100%;
+}
 
-  .image-content {
-    position: absolute; /* Position the background text */
-    bottom: 0; /* At the bottom. Use top:0 to append it to the top */
-    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-    color: #f1f1f1; /* Grey text */
-    width: 100%; /* Full width */
-    padding: 10px; /* Some padding */
-    font-size: 1.3em;
-  }
+.image-content {
+  position: absolute; /* Position the background text */
+  bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1; /* Grey text */
+  width: 100%; /* Full width */
+  padding: 10px; /* Some padding */
+  font-size: 1.3em;
+}
 
-  .dimmer-text {
-    font-size: 1.4em;
+.dimmer-text {
+  font-size: 1.4em;
+}
+
+@media screen and (max-width: 768px) {
+  .image-with-text a.article-img img {
+    min-height: 220px;
+    max-height: 220px;
   }
+}

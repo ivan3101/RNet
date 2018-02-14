@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
-import { ArticleListComponent } from './Components/article-list/article-list.component';
 import { ArticleRowComponent } from './Components/article-row/article-row.component';
 import { ArticleComponent } from './Components/article/article.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -22,6 +21,9 @@ import { IdentificationComponent } from './Components/identification/identificat
 import { RegisterComponent } from './Components/register/register.component';
 import { LoginComponent } from './Components/login/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { ContactUsComponent } from './Components/contact-us/contact-us.component';
+import { AboutUsComponent } from './Components/about-us/about-us.component';
+import { LegalComponent } from './Components/legal/legal.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,6 @@ import {ReactiveFormsModule} from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     PageNotFoundComponent,
-    ArticleListComponent,
     ArticleRowComponent,
     ArticleComponent,
     CategoryComponent,
@@ -41,6 +42,9 @@ import {ReactiveFormsModule} from '@angular/forms';
     IdentificationComponent,
     RegisterComponent,
     LoginComponent,
+    ContactUsComponent,
+    AboutUsComponent,
+    LegalComponent,
   ],
   entryComponents: [
     IdentificationComponent,

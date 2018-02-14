@@ -1,0 +1,43 @@
+<div class="ui container segment">
+  <h1 class="header">Contactanos</h1>
+  <div class="ui raised very padded text container basic segment">
+    <form class="ui equal width form" [formGroup]="contactForm" [ngClass]="{
+      'error': !contactForm.valid && contactForm.touched,
+      'success': contacted
+      }">
+      <div class="ui success message">
+        <div class="header">Exito!</div>
+        <p>Muchas gracias por su mensaje {{ contactForm.get('name').value | titlecase }}. Nos pondremos en contacto a traves del correo electronico que usted proporciono</p>
+      </div>
+      <div class="field">
+        <div class="ui error message" *ngIf="!contactForm.get('name').valid && contactForm.get('name').touched">
+          <div class="header">Campo requerido</div>
+          <p>Debe ingresar su nombre</p>
+        </div>
+        <div class="ui error message" *ngIf="!contactForm.get('email').valid && contactForm.get('email').touched">
+          <div class="header">Campo requerido</div>
+          <p>Debe ingresar su correo electronico</p>
+        </div>
+        <div class="fields">
+          <div class="field required" [ngClass]="{'error': !contactForm.get('name').valid && contactForm.get('name').touched}">
+            <label for="name">Nombre</label>
+            <input type="text" formControlName="name" id="name">
+          </div>
+          <div class="field required" [ngClass]="{'error': !contactForm.get('email').valid && contactForm.get('email').touched}">
+            <label for="email">Correo Electronico</label>
+            <input type="email" formControlName="email" id="email">
+          </div>
+        </div>
+      </div>
+      <div class="field required" [ngClass]="{'error': !contactForm.get('message').valid && contactForm.get('message').touched}">
+        <div class="ui error message" *ngIf="!contactForm.get('message').valid && contactForm.get('message').touched">
+          <div class="header">Campo requerido</div>
+          <p>Debe ingresar un mensaje</p>
+        </div>
+        <label for="message">Su Mensaje</label>
+        <textarea id="message" formControlName="message"></textarea>
+      </div>
+      <button class="ui button submit" [disabled]="!contactForm.valid" (click)="onSubmit()">Enviar mensaje</button>
+    </form>
+  </div>
+</div>

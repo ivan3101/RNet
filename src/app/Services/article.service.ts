@@ -10,13 +10,25 @@ export class ArticleService {
   constructor(private httpClient: HttpClient) {
     this.baseUrl = './assets/data/articles.json';
   }
+  getAllArticles(): Observable<Article[]> {
+    return this.httpClient.get<Article[]>(this.baseUrl);
+  }
   getArticleById(id: number): Observable<Article[]> {
-    return this.httpClient.get<Article []>(this.baseUrl)
+    return this.httpClient.get<Article[]>(this.baseUrl)
       .map((value) => {
         return value.filter(item => item.id === id);
       });
   }
   getFeaturedArticles(): Observable<Article[]> {
-    return this.httpClient.get<Article[]>('./assets/data/featured_articles.json');
+    return this.httpClient.get<Article[]>(this.baseUrl)
+      .map(value => {
+        return value.filter(item => item.featured);
+      });
+  }
+  getArticleByCategory(category: string): Observable<Article[]> {
+    return this.httpClient.get<Article[]>(this.baseUrl)
+      .map(value => {
+        return value.filter(item => item.category === category);
+      });
   }
 }
