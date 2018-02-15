@@ -1,5 +1,5 @@
-<header class="ui red inverted stackable menu">
-  <div class="ui large labeled icon red menu inverted">
+<header class="ui inverted red stackable menu" #header>
+  <div class="ui large labeled icon inverted red menu" #menu>
     <h1 class="ui header item"><a routerLink="/home">RNet</a></h1>
     <a routerLink="/category/tecnologia" routerLinkActive="active" class="item"><i class="desktop icon"></i>Tecnologia</a>
     <a routerLink="/category/smartphones" routerLinkActive="active" class="item"><i class="mobile icon"></i>Smartphones</a>
@@ -13,7 +13,7 @@
         <i class="search link icon"></i>
       </div>
     </div>
-    <div class="ui large labeled icon red menu inverted menu2">
+    <div class="ui large labeled icon red menu inverted menu2" #menu2>
       <a class="item" (click)="onOpenModal()">
         <i class="id card icon"></i>Identificarse
       </a>

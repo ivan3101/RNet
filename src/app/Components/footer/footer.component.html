@@ -10,6 +10,10 @@
       <div class="column">
         <a routerLink="/legal">Terminos y Condiciones</a>
       </div>
+      <div class="column">
+        <button (click)="onActAccessibility()" *ngIf="!actAccessibility">Activar accesibilidad</button>
+        <button (click)="onDeactAccessibility()" *ngIf="actAccessibility">Desactivar accesibilidad</button>
+      </div>
     </div>
     <div class="centered row">
       <p><i class="copyright icon"></i>RNet 2018. Todos los derechos reservados.</p>
