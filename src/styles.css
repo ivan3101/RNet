@@ -24,3 +24,12 @@ form div.ui.message.accessibility p, form div.ui.message.accessibility div.heade
   color: #393939;
 }
 
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-content {
+  flex: 1;
+}

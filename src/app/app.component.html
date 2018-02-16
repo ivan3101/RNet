@@ -1,5 +1,7 @@
 <app-header></app-header>
-<router-outlet></router-outlet>
+<main [@routerAnimation]="getRouteAnimation(route)"  class="site-content">
+  <router-outlet #route="outlet"></router-outlet>
+</main>
 <app-footer></app-footer>
 <app-mobile-navbar></app-mobile-navbar>
 <br class="separator"><br class="separator"><br class="separator">

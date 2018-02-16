@@ -11,13 +11,13 @@ import {LegalComponent} from './Components/legal/legal.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'contact-us', component: ContactUsComponent },
-  { path: 'about-us', component: AboutUsComponent },
-  { path: 'legal', component: LegalComponent },
-  { path: 'articles/:articleId', component: ArticleComponent },
-  { path: 'category/:categoryId', component: CategoryComponent },
-  { path: '**', component: PageNotFoundComponent }
+  { path: 'home', component: HomeComponent, data: { animation: 'home' } },
+  { path: 'contact-us', component: ContactUsComponent, data: { animation: 'contact-us' } },
+  { path: 'about-us', component: AboutUsComponent, data: { animation: 'about-us' } },
+  { path: 'legal', component: LegalComponent, data: { animation: 'legal' } },
+  { path: 'articles/:articleId', component: ArticleComponent, data: { animation: 'articles/:articleId' } },
+  { path: 'category/:categoryId', component: CategoryComponent, data: { animation: 'category' } },
+  { path: '**', component: PageNotFoundComponent, data: { animation: '**' } }
 ];
 
 @NgModule({
