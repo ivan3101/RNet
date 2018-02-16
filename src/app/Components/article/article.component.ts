@@ -30,7 +30,7 @@ export class ArticleComponent implements OnInit {
       'Rafael',
       this.commentsForm.value.comment,
       new Date(),
-      'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png'
+      'assets/images/Profile_avatar_placeholder_large.png'
     ));
     this.commentsForm.reset();
   }
