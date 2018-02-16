@@ -2,7 +2,7 @@
 <div class="ui segment container">
   <h1>Lo ultimo</h1>
   <div class="ui four column doubling stackable grid container">
-    <div class="column" *ngFor="let article of articles | async">
+    <div class="column" *ngFor="let article of articles | async" (@flyInOut.done)="doNext()" [@flyInOut]="'in'">
       <a class="ui centered card" [routerLink]="['/articles', article.id]">
         <div class="ui fluid image">
           <img [src]="article.imageUrl" [ngClass]="{'accessibility': accAct()}">
