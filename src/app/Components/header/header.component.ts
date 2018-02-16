@@ -1,21 +1,20 @@
-import {AfterViewChecked, Component, ViewChild} from '@angular/core';
+import {AfterViewChecked, Component, OnInit, ViewChild} from '@angular/core';
 import {CustomModal} from '../identification/CustomModal';
 import {ModalSize, SuiModalService} from 'ng2-semantic-ui';
-import {AccessibilityService} from '../../Services/accessibility.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements AfterViewChecked {
+export class HeaderComponent implements OnInit, AfterViewChecked {
   @ViewChild('header') header;
   @ViewChild('menu') menu;
   @ViewChild('menu2') menu2;
-  constructor(private modalService: SuiModalService, private accessibilityService: AccessibilityService) { }
+  constructor(private modalService: SuiModalService) { }
+  ngOnInit() { }
   ngAfterViewChecked() {
-    this.accessibilityService.accessibilityAct.subscribe(value => {
-      if (value) {
+      if (sessionStorage.getItem('accessibility')) {
         if (this.header.nativeElement.classList.contains('red')) {
           this.header.nativeElement.classList.remove('red');
         }
@@ -36,7 +35,6 @@ export class HeaderComponent implements AfterViewChecked {
           this.menu2.nativeElement.classList.add('red');
         }
       }
-    });
   }
   onOpenModal() {
     this.modalService

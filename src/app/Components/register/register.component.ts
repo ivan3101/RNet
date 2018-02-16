@@ -31,5 +31,7 @@ export class RegisterComponent implements OnInit {
     this.registered = true;
     this.registerForm.reset();
   }
-
+  accAct() {
+    return Boolean(sessionStorage.getItem('accessibility'));
+  }
 }

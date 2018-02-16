@@ -2,12 +2,16 @@
 'error': !loginForm.valid && loginForm.touched,
 'success': session
 }">
-  <div class="ui success message">
+  <div class="ui success message" [ngClass]="{'accessibility': accAct()}">
     <div class="header">Exito!</div>
     <p>La sesión ha sido iniciada correctamente</p>
   </div>
-  <div class="field required" [ngClass]="{'error': !loginForm.get('username').valid && loginForm.get('username').touched}">
-    <div class="ui error message" *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">
+  <div class="field required" [ngClass]="{
+  'error': !loginForm.get('username').valid && loginForm.get('username').touched,
+  'accessibility': accAct()}">
+    <div class="ui error message"
+         [ngClass]="{'accessibility': accAct()}"
+         *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">
       <div class="header">Campo requerido</div>
       <p>Debe ingresar un nombre de usuario</p>
     </div>
@@ -17,7 +21,9 @@
            formControlName="username">
   </div>
   <div class="field required" [ngClass]="{'error': !loginForm.get('password').valid && loginForm.get('password').touched}">
-    <div class="ui error message" *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">
+    <div class="ui error message"
+         *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched"
+         [ngClass]="{'accessibility': accAct()}">
       <div class="header">Campo requerido</div>
       <p>Debe ingresar una contraseña</p>
     </div>
@@ -26,5 +32,13 @@
            id="password"
            formControlName="password">
   </div>
-  <button class="ui submit button" type="submit" [disabled]="!loginForm.valid" (click)="onSubmit()">Iniciar Sesión</button>
+  <button class="ui fluid button"
+          type="submit"
+          [disabled]="!loginForm.valid"
+          (click)="onSubmit()"
+          [ngClass]="{
+          'negative': !loginForm.valid && !accAct(),
+          'positive': loginForm.valid && !accAct(),
+          'black': !loginForm.valid && accAct(),
+          'grey': loginForm.valid && accAct()}">Iniciar Sesión</button>
 </form>

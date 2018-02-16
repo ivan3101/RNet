@@ -24,4 +24,7 @@ export class ContactUsComponent implements OnInit {
     this.contacted = true;
     this.contactForm.reset();
   }
+  accAct() {
+    return Boolean(sessionStorage.getItem('accessibility'));
+  }
 }

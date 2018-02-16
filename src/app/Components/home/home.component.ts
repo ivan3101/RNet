@@ -13,5 +13,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.articles = this.articleServie.getAllArticles();
   }
+  accAct() {
+    return Boolean(sessionStorage.getItem('accessibility'));
+  }
 
 }

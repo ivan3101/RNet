@@ -34,5 +34,7 @@ export class ArticleComponent implements OnInit {
     ));
     this.commentsForm.reset();
   }
-
+  accAct() {
+    return Boolean(sessionStorage.getItem('accessibility'));
+  }
 }

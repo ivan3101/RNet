@@ -24,7 +24,6 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { ContactUsComponent } from './Components/contact-us/contact-us.component';
 import { AboutUsComponent } from './Components/about-us/about-us.component';
 import { LegalComponent } from './Components/legal/legal.component';
-import {AccessibilityService} from './Services/accessibility.service';
 
 @NgModule({
   declarations: [
@@ -59,7 +58,6 @@ import {AccessibilityService} from './Services/accessibility.service';
   ],
   providers: [
     ArticleService,
-    AccessibilityService
   ],
   bootstrap: [AppComponent]
 })

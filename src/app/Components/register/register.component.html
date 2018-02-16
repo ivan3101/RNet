@@ -2,16 +2,20 @@
 'error': !registerForm.valid && registerForm.touched,
 'success': registered
 }">
-  <div class="ui success message">
+  <div class="ui success message" [ngClass]="{'accessibility': accAct()}">
     <div class="header">Exito!</div>
     <p>Se ha registrado correctamente</p>
   </div>
   <div class="field required">
-    <div class="ui error message" *ngIf="!registerForm.get('fullname.firstname').valid && registerForm.get('fullname.firstname').touched">
+    <div class="ui error message"
+         *ngIf="!registerForm.get('fullname.firstname').valid && registerForm.get('fullname.firstname').touched"
+         [ngClass]="{'accessibility': accAct()}">
       <div class="header">Campo requerido</div>
       <p>Debe ingresar su primer nombre</p>
     </div>
-    <div class="ui error message" *ngIf="!registerForm.get('fullname.lastname').valid && registerForm.get('fullname.lastname').touched">
+    <div class="ui error message"
+         *ngIf="!registerForm.get('fullname.lastname').valid && registerForm.get('fullname.lastname').touched"
+         [ngClass]="{'accessibility': accAct()}">
       <div class="header">Campo requerido</div>
       <p>Debe ingresar su primer apellido</p>
     </div>
@@ -26,7 +30,9 @@
     </div>
   </div>
   <div class="field required" [ngClass]="{'error': !registerForm.get('email').valid && registerForm.get('email').touched}">
-    <div class="ui error message" *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">
+    <div class="ui error message"
+         *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched"
+         [ngClass]="{'accessibility': accAct()}">
       <div class="header">Campo requerido</div>
       <p>Debe ingresar su correo electronico</p>
     </div>
@@ -34,7 +40,9 @@
     <input type="email" id="email" formControlName="email" placeholder="Correo Electronico">
   </div>
   <div class="field required" [ngClass]="{'error': !registerForm.get('username').valid && registerForm.get('username').touched}">
-    <div class="ui error message" *ngIf="!registerForm.get('username').valid && registerForm.get('username').touched">
+    <div class="ui error message"
+         *ngIf="!registerForm.get('username').valid && registerForm.get('username').touched"
+         [ngClass]="{'accessibility': accAct()}">
       <div class="header">Campo requerido</div>
       <p>Debe ingresar un nombre de usuario</p>
     </div>
@@ -42,11 +50,15 @@
     <input type="text" id="username" placeholder="Nombre de usuario" formControlName="username">
   </div>
   <div class="field">
-    <div class="ui error message" *ngIf="!registerForm.get('password.newPassword').valid && registerForm.get('password.newPassword').touched">
+    <div class="ui error message"
+         *ngIf="!registerForm.get('password.newPassword').valid && registerForm.get('password.newPassword').touched"
+         [ngClass]="{'accessibility': accAct()}">
       <div class="header">Campo requerido</div>
       <p>Debe ingresar una contraseña</p>
     </div>
-    <div class="ui error message" *ngIf="!registerForm.get('password.confirmPassword').valid && registerForm.get('password.confirmPassword').touched">
+    <div class="ui error message"
+         *ngIf="!registerForm.get('password.confirmPassword').valid && registerForm.get('password.confirmPassword').touched"
+         [ngClass]="{'accessibility': accAct()}">
       <div class="header">Campo requerido</div>
       <p>Debe confirmar su contraseña</p>
     </div>
@@ -61,5 +73,13 @@
       </div>
     </div>
   </div>
-  <button class="ui button submit" type="submit" (click)="onSubmit()" [disabled]="!registerForm.valid">Registrarse</button>
+  <button class="ui fluid button"
+          type="submit"
+          (click)="onSubmit()"
+          [ngClass]="{
+          'negative': !registerForm.valid && !accAct(),
+          'positive': registerForm.valid && !accAct(),
+          'black': !registerForm.valid && accAct(),
+          'grey': registerForm.valid && accAct()}"
+          [disabled]="!registerForm.valid">Registrarse</button>
 </form>

@@ -1,9 +1,14 @@
 <div class="image-with-text" (mouseenter)="isDimmed = !isDimmed" (mouseleave)="isDimmed = !isDimmed">
   <a [routerLink]="['/articles', articleFeatured.id]" class="article-img">
-    <img [src]="articleFeatured.imageUrl" [alt]="articleFeatured.title" class="ui fluid image">
+    <img [src]="articleFeatured.imageUrl"
+         [alt]="articleFeatured.title"
+         class="ui fluid image"
+         [ngClass]="{'accessibility': accAct()}">
   </a>
   <sui-dimmer [isClickable]="false" [isDimmed]="isDimmed">
-    <a [routerLink]="['/articles', articleFeatured.id]" class="dimmer-text">Leer mas</a>
+    <a [routerLink]="['/articles', articleFeatured.id]"
+       class="dimmer-text"
+       [ngClass]="{'accessibility': accAct(), 'inverted': accAct()}">Leer mas</a>
   </sui-dimmer>
   <a [routerLink]="['/articles', articleFeatured.id]">
     <div class="image-content">

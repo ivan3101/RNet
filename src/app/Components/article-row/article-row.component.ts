@@ -9,8 +9,9 @@ import {Article} from '../../Models/article.model';
 export class ArticleRowComponent implements OnInit {
   @Input() article: Article;
   constructor() { }
-
   ngOnInit() {
   }
-
+  accAct() {
+    return Boolean(sessionStorage.getItem('accessibility'));
+  }
 }

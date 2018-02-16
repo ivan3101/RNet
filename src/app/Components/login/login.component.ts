@@ -23,4 +23,7 @@ export class LoginComponent implements OnInit {
     this.session = true;
     this.loginForm.reset();
   }
+  accAct() {
+    return Boolean(sessionStorage.getItem('accessibility'));
+  }
 }

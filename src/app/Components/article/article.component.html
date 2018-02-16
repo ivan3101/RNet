@@ -1,7 +1,10 @@
 <div class="ui segment container">
   <div class="ui basic segment">
     <h2 class="ui header">{{ article?.title }}</h2>
-    <img [alt]="article?.title" [src]="article?.imageUrl" class="ui centered huge image">
+    <img [alt]="article?.title"
+         [src]="article?.imageUrl"
+         class="ui centered huge image"
+         [ngClass]="{'accessibility': accAct()}">
   </div>
   <div class="ui text container" [innerHTML]="article?.story">
   </div>

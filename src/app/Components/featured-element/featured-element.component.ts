@@ -10,4 +10,7 @@ export class FeaturedElementComponent implements OnInit {
   @Input() articleFeatured;
   constructor() { }
   ngOnInit() { }
+  accAct() {
+    return Boolean(sessionStorage.getItem('accessibility'));
+  }
 }

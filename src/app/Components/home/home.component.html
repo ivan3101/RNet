@@ -5,7 +5,7 @@
     <div class="column" *ngFor="let article of articles | async">
       <a class="ui centered card" [routerLink]="['/articles', article.id]">
         <div class="ui fluid image">
-          <img [src]="article.imageUrl">
+          <img [src]="article.imageUrl" [ngClass]="{'accessibility': accAct()}">
         </div>
         <div class="content">
           <div class="header">{{ article.title }}</div>
