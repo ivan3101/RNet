@@ -13,10 +13,15 @@
         <i class="search link icon"></i>
       </div>
     </div>
-    <div class="ui large labeled icon red menu inverted menu2" #menu2>
+    <div class="ui large labeled icon red menu inverted menu2" #menu2 *ngIf="!user">
       <a class="item" (click)="onOpenModal()">
         <i class="id card icon"></i>Identificarse
       </a>
+    </div>
+    <div class="ui large labeled icon red menu inverted menu2" #menu2 *ngIf="user">
+      <a class="item" (click)="onLogout()">
+        <img [src]="user.imageUrl" [alt]="user.fullName" class="avatar">
+        {{ user.fullName }}</a>
     </div>
   </div>
 </header>

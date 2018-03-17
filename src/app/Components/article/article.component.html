@@ -14,10 +14,10 @@
     <h3 class="ui dividing header">Comentarios</h3>
     <div class="comment" *ngFor="let comment of article?.comments">
       <a class="avatar">
-        <img [src]="comment.avatarUrl">
+        <img [src]="comment.author.imageUrl">
       </a>
       <div class="content">
-        <a class="author">{{ comment.author }}</a>
+        <a class="author">{{ comment.author.fullName }}</a>
         <div class="metadata">
           <span class="date">{{ comment.date | date:'medium' }}</span>
         </div>
@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-    <form class="ui reply form" [formGroup]="commentsForm">
+    <form class="ui reply form" [formGroup]="commentsForm" *ngIf="user">
       <div class="field">
         <label for="comment">Escriba su comentario:</label>
         <textarea formControlName="comment" id="comment"></textarea>

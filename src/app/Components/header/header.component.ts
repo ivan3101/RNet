@@ -1,18 +1,30 @@
-import {AfterViewChecked, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewChecked, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {CustomModal} from '../identification/CustomModal';
 import {ModalSize, SuiModalService} from 'ng2-semantic-ui';
+import {User} from '../../Models/user.model';
+import {UserService} from '../../Services/user.service';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit, AfterViewChecked {
+export class HeaderComponent implements OnInit, AfterViewChecked, OnDestroy {
   @ViewChild('header') header;
   @ViewChild('menu') menu;
   @ViewChild('menu2') menu2;
-  constructor(private modalService: SuiModalService) { }
-  ngOnInit() { }
+  user: User;
+  sessionSubscription: Subscription;
+  constructor(private modalService: SuiModalService, private userService: UserService) { }
+
+  ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('user'));
+    this.sessionSubscription = this.userService.session.subscribe(value => {
+      this.user = JSON.parse(localStorage.getItem('user'));
+    });
+  }
+
   ngAfterViewChecked() {
       if (sessionStorage.getItem('accessibility')) {
         if (this.header.nativeElement.classList.contains('red')) {
@@ -36,8 +48,18 @@ export class HeaderComponent implements OnInit, AfterViewChecked {
         }
       }
   }
+
+  ngOnDestroy() {
+    this.sessionSubscription.unsubscribe();
+  }
+
   onOpenModal() {
     this.modalService
       .open(new CustomModal(ModalSize.Tiny));
   }
+  onLogout() {
+    this.userService.logout();
+  }
+
+
 }

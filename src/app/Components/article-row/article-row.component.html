@@ -1,8 +1,8 @@
-<a class="ui link medium rounded image" [routerLink]="['/articles', article.id]">
+<a class="ui link medium rounded image" [routerLink]="['/articles', article._id]">
   <img [src]="article.imageUrl" [ngClass]="{'accessibility': accAct()}">
 </a>
 <div class="content">
-  <a class="header" [routerLink]="['/articles', article.id]" [ngClass]="{'accessibility': accAct()}">{{ article.title }}</a>
+  <a class="header" [routerLink]="['/articles', article._id]" [ngClass]="{'accessibility': accAct()}">{{ article.title }}</a>
   <div class="meta">
     <span [innerHTML]="article.story | substr:300"></span>
   </div>

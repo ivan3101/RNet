@@ -1,8 +1,7 @@
 export class Comment {
   constructor(
-    public author: string,
+    public author: any,
     public comment: string,
-    public date: Date,
-    public avatarUrl: string
+    public date: Date
   ) { }
 }

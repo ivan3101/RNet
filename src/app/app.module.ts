@@ -25,6 +25,7 @@ import { ContactUsComponent } from './Components/contact-us/contact-us.component
 import { AboutUsComponent } from './Components/about-us/about-us.component';
 import { LegalComponent } from './Components/legal/legal.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {UserService} from './Services/user.service';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   ],
   providers: [
     ArticleService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

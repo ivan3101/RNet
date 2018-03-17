@@ -3,7 +3,7 @@
   <h1>Lo ultimo</h1>
   <div class="ui four column doubling stackable grid container">
     <div class="column" *ngFor="let article of articles | async">
-      <a class="ui centered card" [routerLink]="['/articles', article.id]">
+      <a class="ui centered card" [routerLink]="['/articles', article._id]">
         <div class="ui fluid image">
           <img [src]="article.imageUrl" [ngClass]="{'accessibility': accAct()}">
         </div>

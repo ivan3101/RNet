@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {UserService} from '../../Services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -9,8 +10,12 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   session: boolean;
-  constructor() {
+  loginError: boolean;
+  loginErrorMessage: string;
+
+  constructor(private userService: UserService) {
     this.session = false;
+    this.loginError = false;
   }
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -19,8 +24,21 @@ export class LoginComponent implements OnInit {
     });
   }
   onSubmit() {
-    console.log(this.loginForm);
-    this.session = true;
+    const user = {
+      'username': this.loginForm.value.username,
+      'password': this.loginForm.value.password
+    };
+    this.userService.login(user).subscribe(data => {
+      localStorage.setItem('user', JSON.stringify(data.user));
+      localStorage.setItem('token', data.token);
+      this.session = true;
+      this.loginError = false;
+      this.userService.session.next(true);
+    },
+      err => {
+        this.loginError = true;
+        this.loginErrorMessage = err.error.payload.message;
+      });
     this.loginForm.reset();
   }
   accAct() {

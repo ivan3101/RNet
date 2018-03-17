@@ -1,10 +1,14 @@
 <form class="ui large form" [formGroup]="registerForm" [ngClass]="{
-'error': !registerForm.valid && registerForm.touched,
+'error': (!registerForm.valid && registerForm.touched) || registerError,
 'success': registered
 }">
   <div class="ui success message" [ngClass]="{'accessibility': accAct()}">
     <div class="header">Exito!</div>
-    <p>Se ha registrado correctamente</p>
+    <p>Se ha registrado correctamente. Ya puedes iniciar sesion usando esa cuenta.</p>
+  </div>
+  <div class="ui error message" [ngClass]="{'accessibility': accAct()}" *ngIf="registerError">
+    <div class="header">Error</div>
+    <p>{{ registerErrorMessage }}</p>
   </div>
   <div class="field required">
     <div class="ui error message"
@@ -61,6 +65,12 @@
          [ngClass]="{'accessibility': accAct()}">
       <div class="header">Campo requerido</div>
       <p>Debe confirmar su contraseña</p>
+    </div>
+    <div class="ui error message"
+         *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched && registerForm.get('password.confirmPassword').valid && registerForm.get('password.confirmPassword').touched && registerForm.get('password.newPassword').valid && registerForm.get('password.newPassword').touched"
+         [ngClass]="{'accessibility': accAct()}">
+      <div class="header">Contraseñas invalidas</div>
+      <p>Las contraseñas deben coincidir</p>
     </div>
     <div class="two fields" formGroupName="password">
       <div class="field required" [ngClass]="{'error': !registerForm.get('password.newPassword').valid && registerForm.get('password.newPassword').touched}">
