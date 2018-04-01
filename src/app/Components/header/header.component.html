@@ -7,12 +7,6 @@
     <a routerLink="/category/tutoriales" routerLinkActive="active" class="item"><i class="book icon"></i>Tutoriales</a>
   </div>
   <div class="right menu">
-    <div class="ui right aligned category search item">
-      <div class="ui icon input">
-        <input class="prompt" placeholder="Buscar articulos..." type="text" style="">
-        <i class="search link icon"></i>
-      </div>
-    </div>
     <div class="ui large labeled icon red menu inverted menu2" #menu2 *ngIf="!user">
       <a class="item" (click)="onOpenModal()">
         <i class="id card icon"></i>Identificarse
@@ -22,6 +16,12 @@
       <a class="item" (click)="onLogout()">
         <img [src]="user.imageUrl" [alt]="user.fullName" class="avatar">
         {{ user.fullName }}</a>
+    </div>
+    <div class="ui large labeled icon red menu inverted menu2" #menu3>
+      <a class="item" (click)="onAccessibility()">
+        <i class="low vision icon"></i>
+        Modo daltonico
+      </a>
     </div>
   </div>
 </header>

@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit, AfterViewChecked, OnDestroy {
   @ViewChild('header') header;
   @ViewChild('menu') menu;
   @ViewChild('menu2') menu2;
+  @ViewChild('menu3') menu3;
   user: User;
   sessionSubscription: Subscription;
   constructor(private modalService: SuiModalService, private userService: UserService) { }
@@ -36,6 +37,9 @@ export class HeaderComponent implements OnInit, AfterViewChecked, OnDestroy {
         if (this.menu2.nativeElement.classList.contains('red')) {
           this.menu2.nativeElement.classList.remove('red');
         }
+        if (this.menu3.nativeElement.classList.contains('red')) {
+          this.menu3.nativeElement.classList.remove('red');
+        }
       } else {
         if (!this.header.nativeElement.classList.contains('red')) {
           this.header.nativeElement.classList.add('red');
@@ -45,6 +49,9 @@ export class HeaderComponent implements OnInit, AfterViewChecked, OnDestroy {
         }
         if (!this.menu2.nativeElement.classList.contains('red')) {
           this.menu2.nativeElement.classList.add('red');
+        }
+        if (!this.menu3.nativeElement.classList.contains('red')) {
+          this.menu3.nativeElement.classList.add('red');
         }
       }
   }
@@ -61,5 +68,12 @@ export class HeaderComponent implements OnInit, AfterViewChecked, OnDestroy {
     this.userService.logout();
   }
 
+  onAccessibility() {
+    if (sessionStorage.getItem('accessibility')) {
+      sessionStorage.removeItem('accessibility');
+    } else {
+      sessionStorage.setItem('accessibility', 'true');
+    }
+  }
 
 }

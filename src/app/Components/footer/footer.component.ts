@@ -26,13 +26,4 @@ export class FooterComponent implements AfterViewChecked {
       }
     }
   }
-  onAccessibility() {
-    if (sessionStorage.getItem('accessibility')) {
-      sessionStorage.removeItem('accessibility');
-      this.actAccessibility = false;
-    } else {
-      sessionStorage.setItem('accessibility', 'true');
-      this.actAccessibility = true;
-    }
-  }
 }
