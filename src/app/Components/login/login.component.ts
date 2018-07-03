@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
       this.userService.session.next(true);
     },
       err => {
+        console.log(err)
         this.loginError = true;
         this.loginErrorMessage = err.error.payload.message;
       });

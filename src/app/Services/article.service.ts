@@ -9,7 +9,7 @@ import {Comment} from '../Models/comment.model';
 export class ArticleService {
   private baseUrl: string;
   constructor(private httpClient: HttpClient) {
-    this.baseUrl = 'http://localhost:3000/api/articles';
+    this.baseUrl = 'https://thawing-crag-52226.herokuapp.com/api/articles';
   }
   getAllArticles(): Observable<Article[]> {
     return this.httpClient.get<Article[]>(this.baseUrl);

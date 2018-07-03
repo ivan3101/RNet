@@ -8,13 +8,13 @@ export class UserService {
   url: string;
   session = new Subject<boolean>();
   constructor(private httpClient: HttpClient) {
-    this.url = 'http://localhost:3000/api/users';
+    this.url = 'https://thawing-crag-52226.herokuapp.com/api/users';
   }
   addUser(user) {
     return this.httpClient.post(this.url, user);
   }
   login(user): Observable<any> {
-    return this.httpClient.post('http://localhost:3000/api/auth', user);
+    return this.httpClient.post('https://thawing-crag-52226.herokuapp.com/api/auth', user);
   }
   logout() {
     localStorage.removeItem('token');
